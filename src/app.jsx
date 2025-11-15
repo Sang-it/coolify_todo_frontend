@@ -2,14 +2,13 @@ import { useState, useEffect } from 'preact/hooks';
 import { TodoList } from './components/TodoList';
 import { AddTodo } from './components/AddTodo';
 
-const API_BASE = "https://ro0co4go04k0c4kg884oookg.caldwellwebservices.com"
+const API_BASE = import.meta.env.VITE_API_URL;
 
 export function App() {
     const [todos, setTodos] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    // Fetch todos on component mount
     useEffect(() => {
         fetchTodos();
     }, []);
